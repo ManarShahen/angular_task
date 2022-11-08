@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <style>
+        h2 {
+            color: darkcyan;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+        } 
+    </style>
+    
+
+</head>
+
+<body style="margin: 50px;">
+
+    <h2 style="text-align: center;">Hello World </h2>
+    <p id="welcome" class="font-weight-light" style=text-align:center;>Contacts</p>
+    <br>
+    <div [ngStyle]="custom_style" class="container">
+
+        <div style="width: 100px; float:left; height:100px ; margin:10px">
+            <img id="image" height="110px" width="110px"
+                [src]="image_src" alt="img" class="rounded mr-5">
+        </div>
+
+        <div style="width: 900px; float:left;  margin-top:40px; margin-left: 20px;" >
+            <div  style="width: 900px; color: #000;">
+
+                <h2> First Let Me Introduce Myself</h2>
+                <p id="data" class="font-weight-light"> my name is.... <br> I am a....<br> My favourit hobby
+                    is....<br>My
+                    favorit sport is...</p>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <hr>
+
+    <div class="column" style="width: 900px;">
+
+
+        <h2 id="name" class="text-light">Check Out My Favourit Website: </h2>
+
+        <ul>
+            <li>
+                <p><a href="https://www.google.com/">Google</a> is more like abest frind</p>
+            </li>
+            <li>
+                <p><a href="https://www.youtube.com/">Youtube</a> where i can finf all what i need</p>
+            </li>
+            <li>
+                <p><a href="https://ar.khanacademy.org/">khan academy</a> where i can learn amazing things</p>
+            </li>
+            <li>
+                <p><a href="https://www.nasa.gov/">Nasa</a> is soo interesting</p>
+            </li>
+        </ul>
+
+
+        <p>you can click these link and don't woory it will opev in a new tab xD </p>
+    </div>
+    <hr>
+
+    <h2>If You Link My Website Please Fill This Form</h2>
+    <form>
+
+        <input type="text" id="name" name="Name" value="Name"><br>
+        <br>
+        <input type="text" id="email" name="Email" value="Email"><br>
+        <p><input type="checkbox" id="check" name="i like this Website" value="i like this Website">I like this Website
+        </p>
+        <input type="submit" value="Submit" style="width: 170px;" style="background-color:darkcyan">
+
+    </form>
+    <hr>
+
+    <img id="image" width="1500px" height="400px"
+        src="https://thumbs.dreamstime.com/z/natural-looking-label-thank-you-banner-white-blossoms-as-background-31426461.jpg"
+        alt="img">
+</body>
+
+</html>

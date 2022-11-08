@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+ 
+<body >
+
+        <div class="row align-items-start"  >
+
+                <img  height="700px" [src]="comic.image" alt="img" class="rounded mr-5">
+
+                <div class="column" style="width: 800px;">
+                        
+                        <h1 id="name" class="text-dark">{{comic.title}}</h1>
+                        <h2 class="text-dark">Published:</h2>
+                        <p id="publish_date" class="font-weight-dark">{{comic.published}} </p>
+
+                        <div class="row" style="padding-left: 16px">
+
+                                <div class="column">
+                                        <h2 class="text-dark">Writer:</h2>
+                                        <p id="writer" class="font-weight-bold">{{comic.writer}} </p>
+                                </div>
+
+                                <div class="column hor-padding" style="margin-inline: 200px;">
+                                        <h2 class="text-dark">Penclier:</h2>
+                                        <p id="penclier" class="front-weight-bold"> {{comic.penciler}}</p>
+
+                                </div>
+
+                        </div>
+                        <h2 class="text-dark">Cover Artist:</h2>
+                        <p id="cover_artist" class="font-weight-bold">{{comic.coverArtist}} </p>
+                        <br>
+                        <p id="description" >{{comic.description}}</p>
+
+                </div>
+
+
+        </div>
+
+
+        <div id="loader" class="loading" >
+                <div class="comic_loader back-to-top d-flex align-items-center justify-content-center"></div>
+        </div>
+
+ 
+
+
+</body>
+
+
+
+</html>
