@@ -1,27 +1,133 @@
-# Task1
+# Store
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+My-Store website is designed to sell a world cup balls for who interseted to get a world cup ball, there are some of ball used in 2022 in Qatar and 2018 in Rasia.
+The customer can open the website and find out the items then select any balls and should enter his/her name, address, and card number and finally submit his/her order.
 
-## Development server
+ 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+MyStore wants you to focus on the skill you developed within this court by building a web application. You will need to develop the server and website. However, you will not have to worry about deploying the application. MyStore will handle that work.
 
-## Code scaffolding
+## Starter Project
+A senior developer is assigned to be your tech lead and mentor, and they put together a starter project for you. It's a Maven project configured for all the dependencies the project requires, though you should feel free to add any additional dependencies you might require. You can download or clone the starter repository here.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requirements and Roadmap
+There will be two layers of the application you will need to implement.
 
-## Build
+1. The back-end with Spring Boot
+2. The front-end with Angular
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## The Back-End
+The back-end is all about security and connecting the front-end to H2 database data and actions.
 
-## Running unit tests
+1. Managing user access with Spring Security
+* You have to restrict unauthorized users from accessing pages. To do this, you must create a security configuration class SpringSecurityConfig that extends the WebSecurityConfigurerAdapter class from Spring. Place this class in a package reserved for security. You will need to turn on HTTP basic security. 
+* You have to use the security configuration to override the default spring security. In the resources directory you will see application.properties file that provides the system username and password. 
+* All requests from the website will need to provide Authorization: 'Basic dWRhY2l0eTpwYXNzd29yZA==' in the header to be allowed access.
+2. You need to write controllers for the application that bind application data and functionality to the front-end. That means you will need a product controller to provide the product information to the system and a order controller that stores order information when a cart transaction is completed. 
+* The controllers you write should also be responsible for determining what, if any, error messages the application displays to the user. When a controller processes front-end requests, it should delegate the individual steps and logic of those requests to other services in the application, but it should interpret the results to ensure a smooth user experience.
+* It's a good idea to keep your controllers in a single package to isolate the controller layer. Usually, we simply call this package controller!
+* If you find yourself repeating tasks over and over again in controller methods, or your controller methods are getting long and complicated, consider abstracting some methods out into services! For example, consider the HashService and EncryptionService classes included in the starter code package service. These classes encapsulate simple, repetitive tasks and are available anywhere dependency injection is supported. Think about additional tasks that can be similarly abstracted and reused, and create new services to support them!
+3. Making calls to the database with JPA mappers.
+* You will need two model classes. One for items and the other for orders. The will need the @Entity annotation.
+* To connect these model classes with database data, implement JPA mapper interfaces for each of the model types. These mappers should extend JpaRepository. You will access the database through these classes.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Running the Backend
 
-## Running end-to-end tests
+1. Load the application into InteliJ
+2. Right click on StoreApplication and select run or from the cmd line use `mvn spring-boot:run`
+3. The application will be running on  `http://localhost:8080/`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## The Frontend
+Your tech lead has done a thorough job developing HTML templates for the required application pages. They have included fields, modal forms, success and error message elements, as well as styling and functional components using Bootstrap as a framework. You must edit these templates and insert Angular components and services to supply the back-end data and functionality described by the following individual page requirements:
 
-## Further help
+Website
+The website will contain the following components, cart, confirmation, product-item, product-item-detail and product-list
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Product list - 
+The user should be able to view all products that the site sales. It should have the name, price, picture and quantity to purchase.
+
+The product service should pull the product list from the backend. 
+
+2. Confirmation - 
+The user should receive a confirmation dialog when they add an item to the cart. 
+
+3. Product item - 
+Provides the information that each product in the list will display to the customer.
+
+4. Product item detail - 
+Provides the detail description of the product when a customer selects the product from the product list. 
+
+5. Cart - 
+Provides a summary of the items in the cart along with the total price. Additionally, takes the customers, name, address and credit card to complete the order. 
+
+When a customer submits a cart they are provided with the summary of the cart. The submit button will send the order to the backend. 
+
+## Running the frontend 
+
+1. Navigate to /webapp/angular-frontend
+2. Install dependencies with `npm install`.
+3. Run `ng serve` for a dev server.
+4. Navigate to `http://localhost:4200/`.
+
+## Files that need to be Updated to complete the project 
+### Project Backend: Files and Tasks
+
+```bash
+### Backend Tasks to implement
+nd035-ent-elm-mycart-and-store-with-springboot
+└── starter
+    ├── src/main                    
+        ├── java/com/udacity/store
+                ├── controller       
+                    ├── OrderController    #TODO
+                    └── ProductController  #TODO
+                ├── model        
+                    ├── Order              #TODO
+                    └── Product            #TODO           
+                ├── repository       
+                    ├── OrderRepository    
+                    └── ProductRepository  
+                ├── security
+                    └── SpringSecurityConfig        
+                └── StoreApplication       #TODO
+```
+
+### Project Frontend: Files & Tasks
+
+```bash
+# Frontend Tasks to Implement
+nd035-ent-elm-mycart-and-store-with-springboot
+└── starter
+    ├── src/main                    
+        ├── java/com/udacity/store
+        ├── resources
+        └── webapp/angular-frontend
+            ├── e2e
+            └── src
+                ├── app
+                    ├── components
+                        ├── cart
+                            └── cart.component.ts   #TODO 
+                        ├── confirmation
+                        ├── product-item-detail
+                            ├── product-item-detail.component.html #TODO
+                            └── product-item-detail.component.ts   #TODO 
+                        ├── product-item
+                            └── product-item.component.html    #TODO
+                        ├── product-list
+                    ├── layout/header
+                    ├── models
+                            ├── Order.ts        #TODO
+                            └── Product.ts      #TODO 
+                    └── services
+                            ├── cart.service.ts     #TODO
+                            └── product.service.ts  #TODO 
+                ├── assets
+                ├── environments
+                ├── favicon
+                ├── index.html
+                ├── main.ts
+                ├── polyfills.ts
+                ├── styles.css
+                └── test.ts        
+```
